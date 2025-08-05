@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 const ProductGrid = () => {
   const mockProducts = [
     {
@@ -15,6 +17,20 @@ const ProductGrid = () => {
       price: 2150,
       image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       category: 'Bags',
+    },
+    {
+      id: '3',
+      name: 'Oversized Hoodie',
+      price: 795,
+      image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      category: 'Ready-to-Wear',
+    },
+    {
+      id: '4',
+      name: 'Track Sneakers',
+      price: 825,
+      image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      category: 'Shoes',
     },
   ]
 
@@ -39,7 +55,11 @@ const ProductGrid = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {mockProducts.map((product) => (
-            <div key={product.id} className="group relative bg-white">
+            <Link 
+              key={product.id} 
+              href={`/products/${product.id}`}
+              className="group relative bg-white hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+            >
               <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src={product.image}
@@ -51,15 +71,24 @@ const ProductGrid = () => {
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
                   {product.category}
                 </p>
-                <h3 className="font-medium text-gray-900 mb-2">
+                <h3 className="font-medium text-gray-900 mb-2 group-hover:text-black">
                   {product.name}
                 </h3>
                 <span className="font-semibold text-gray-900">
                   {formatPrice(product.price)}
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
+        </div>
+
+        {/* View All Products Button */}
+        <div className="text-center mt-12">
+          <Link href="/products">
+            <button className="bg-black text-white px-8 py-3 font-medium tracking-wider uppercase hover:bg-gray-900 transition-colors">
+              View All Products
+            </button>
+          </Link>
         </div>
       </div>
     </section>

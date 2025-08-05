@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CartSidebar from "@/components/ui/CartSidebar";
 
 export const metadata: Metadata = {
   title: "Balenciaga - Luxury Fashion",
@@ -24,6 +25,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CartSidebar />
       </body>
     </html>
   );

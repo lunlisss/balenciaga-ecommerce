@@ -1,5 +1,6 @@
 import Hero from '@/components/features/Hero'
 import ProductGrid from '@/components/features/ProductGrid'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative h-96 overflow-hidden group cursor-pointer">
+            <Link href="/products" className="relative h-96 overflow-hidden group cursor-pointer">
               <img
                 src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Women's Collection"
@@ -25,9 +26,9 @@ export default function Home() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
             
-            <div className="relative h-96 overflow-hidden group cursor-pointer">
+            <Link href="/products" className="relative h-96 overflow-hidden group cursor-pointer">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Men's Collection"
@@ -41,7 +42,7 @@ export default function Home() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
